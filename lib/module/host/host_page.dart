@@ -26,25 +26,25 @@ class _HostPageState extends State<HostPage> implements RCRTCStatsListener {
    * --------------------------
    * SomeThing
   */
-  late String _roomId; //
-  late Config _config; //
-  late RCRTCVideoConfig _tinyConfig; //
-  late RCRTCVideoConfig _customConfig; //
+  late String _roomId; //直播数据 房间ID
+  late Config _config; //直播数据 视频流 配置信息
+  late RCRTCVideoConfig _tinyConfig; //直播数据 小流 配置信息
+  late RCRTCVideoConfig _customConfig; //直播数据 自定义视频流 配置信息
 
-  RCRTCView? _local; //
-  RCRTCView? _custom; //
-  String? _customPath; //
+  RCRTCView? _local; //主播的本地视频
+  RCRTCView? _custom; //自定义视频
+  String? _customPath; //自定义视频的本地路径
 
-  LiveMix _liveMix = LiveMix(); //
-  Map<String, RCRTCView?> _remoteCustoms = {}; //
+  LiveMix _liveMix = LiveMix(); // 画中画 合流布局
+  Map<String, RCRTCView?> _remoteCustoms = {}; //远端 主播视频流
 
-  bool _yuv = false; //
-  bool _localYuv = false; //
-  bool _published = false; //
-  bool _customPublished = false; //
+  bool _yuv = false; //是否默认YUV数据
+  bool _localYuv = false; //是否选中YUV数据
+  bool _published = false; //是否发布视频流、音频流
+  bool _customPublished = false; //是否发布自定义视频
 
-  List<CDNInfo> _cdnList = []; //
-  Map<String, RCRTCView?> _remotes = {}; //
+  List<CDNInfo> _cdnList = []; //CDN列表
+  Map<String, RCRTCView?> _remotes = {}; //远端 自定义视频流
 
   StateSetter? _networkStatsStateSetter;
   RCRTCNetworkStats? _networkStats;
