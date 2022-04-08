@@ -1509,7 +1509,10 @@ class _HostPageState extends State<HostPage> implements RCRTCStatsListener {
   void onLiveMixVideoStats(RCRTCRemoteVideoStats stats) {}
 
   @override
-  void onLiveMixMemberAudioStats(String userId, int volume) {}
+  void onLiveMixMemberAudioStats(String userId, int volume) {
+    // 直播过程中 监听音频
+    debugPrint('UserID:$userId Volume:$volume');
+  }
 
   @override
   void onLiveMixMemberCustomAudioStats(String userId, String tag, int volume) {}
